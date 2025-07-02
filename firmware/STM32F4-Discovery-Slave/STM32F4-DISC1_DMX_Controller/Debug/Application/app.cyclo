@@ -1,0 +1,5 @@
+../Application/app.c:42:6:APP_Init	1
+../Application/app.c:51:6:APP_Task	8
+../Application/app.c:112:6:HAL_GPIO_EXTI_Callback	7
+../Application/app.c:149:6:HAL_TIM_PeriodElapsedCallback	1
+../Application/app.c:153:6:HAL_UART_TxCpltCallback	1

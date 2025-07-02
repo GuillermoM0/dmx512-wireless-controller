@@ -1,0 +1,2 @@
+../Drivers/protocol/nrf_protocol.c:19:17:SendBLEDataViaNRF24	80	static
+../Drivers/protocol/nrf_protocol.c:114:17:SendSyncMessages	56	static

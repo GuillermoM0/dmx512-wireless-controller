@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="main"
+            type="com.stm.ble_mcsdk.activity.main.MainActivity" />
+        <variable
+            name="vm"
+            type="com.stm.ble_mcsdk.MCSDKViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.main.MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/st_dark_blue"
+            android:theme="@style/Theme.ActionBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="BLE DMX">
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ImageView
+            android:id="@+id/DMXImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/DMX"
+            android:onClick="@{() -> main.onDMXClick()}"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toTopOf="@+id/valueSlider"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/valueSlider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:value="@{vm.DMXval1}"
+            android:valueFrom="0"
+            android:valueTo="255"
+            app:labelBehavior="gone"
+            app:layout_constraintBottom_toTopOf="@+id/maxText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/Ch1"
+            app:layout_constraintStart_toEndOf="@+id/Ch1"
+            app:layout_constraintTop_toBottomOf="@+id/DMXImage"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/Ch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:autofillHints=""
+            android:ems="2"
+            android:gravity="center"
+            android:hint="@string/_1"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:singleLine="true"
+            android:text="@{Integer.toString(vm.DMXch1)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/valueSlider"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/minText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(0)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider"
+            app:layout_constraintLeft_toLeftOf="@+id/valueSlider" />
+
+        <TextView
+            android:id="@+id/CurrentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(vm.DMXval1)}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/maxText"
+            app:layout_constraintStart_toEndOf="@+id/minText"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider" />
+
+        <TextView
+            android:id="@+id/maxText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(255)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider"
+            app:layout_constraintRight_toRightOf="@+id/valueSlider" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/valueSlider2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:value="@{vm.DMXval2}"
+            android:valueFrom="0"
+            android:valueTo="255"
+            app:labelBehavior="gone"
+            app:layout_constraintBottom_toTopOf="@+id/maxText2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/Ch2"
+            app:layout_constraintStart_toEndOf="@+id/Ch2"
+            app:layout_constraintTop_toBottomOf="@+id/maxText"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/Ch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:autofillHints=""
+            android:ems="2"
+            android:gravity="center"
+            android:hint="@string/_2"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:singleLine="true"
+            android:text="@{Integer.toString(vm.DMXch2)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/valueSlider2"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/minText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(0)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider2"
+            app:layout_constraintLeft_toLeftOf="@+id/valueSlider2" />
+
+        <TextView
+            android:id="@+id/CurrentText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(vm.DMXval2)}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/maxText2"
+            app:layout_constraintStart_toEndOf="@+id/minText2"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider2" />
+
+        <TextView
+            android:id="@+id/maxText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(255)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider2"
+            app:layout_constraintRight_toRightOf="@+id/valueSlider2" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/valueSlider3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:value="@{vm.DMXval3}"
+            android:valueFrom="0"
+            android:valueTo="255"
+            app:labelBehavior="gone"
+            app:layout_constraintBottom_toTopOf="@+id/maxText3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/Ch3"
+            app:layout_constraintStart_toEndOf="@+id/Ch3"
+            app:layout_constraintTop_toBottomOf="@+id/maxText2"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/Ch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:autofillHints=""
+            android:ems="2"
+            android:gravity="center"
+            android:hint="@string/_3"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:singleLine="true"
+            android:text="@{Integer.toString(vm.DMXch3)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/valueSlider3"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/minText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(0)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider3"
+            app:layout_constraintLeft_toLeftOf="@+id/valueSlider3" />
+
+        <TextView
+            android:id="@+id/CurrentText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(vm.DMXval3)}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/maxText3"
+            app:layout_constraintStart_toEndOf="@+id/minText3"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider3" />
+
+        <TextView
+            android:id="@+id/maxText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(255)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider3"
+            app:layout_constraintRight_toRightOf="@+id/valueSlider3" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/valueSlider4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:value="@{vm.DMXval4}"
+            android:valueFrom="0"
+            android:valueTo="255"
+            app:labelBehavior="gone"
+            app:layout_constraintBottom_toTopOf="@+id/maxText4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/Ch4"
+            app:layout_constraintStart_toEndOf="@+id/Ch4"
+            app:layout_constraintTop_toBottomOf="@+id/maxText3"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/Ch4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:autofillHints=""
+            android:ems="2"
+            android:gravity="center"
+            android:hint="@string/_4"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:singleLine="true"
+            android:text="@{Integer.toString(vm.DMXch4)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/valueSlider4"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/minText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(0)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider4"
+            app:layout_constraintLeft_toLeftOf="@+id/valueSlider4" />
+
+        <TextView
+            android:id="@+id/CurrentText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(vm.DMXval4)}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/maxText4"
+            app:layout_constraintStart_toEndOf="@+id/minText4"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider4" />
+
+        <TextView
+            android:id="@+id/maxText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(255)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider4"
+            app:layout_constraintRight_toRightOf="@+id/valueSlider4" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/valueSlider5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:value="@{vm.DMXval5}"
+            android:valueFrom="0"
+            android:valueTo="255"
+            app:labelBehavior="gone"
+            app:layout_constraintBottom_toTopOf="@+id/maxText5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/Ch5"
+            app:layout_constraintStart_toEndOf="@+id/Ch5"
+            app:layout_constraintTop_toBottomOf="@+id/maxText4"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/Ch5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:autofillHints=""
+            android:ems="2"
+            android:gravity="center"
+            android:hint="@string/_5"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:singleLine="true"
+            android:text="@{Integer.toString(vm.DMXch5)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/valueSlider5"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/minText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(0)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider5"
+            app:layout_constraintLeft_toLeftOf="@+id/valueSlider5" />
+
+        <TextView
+            android:id="@+id/CurrentText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(vm.DMXval5)}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/maxText5"
+            app:layout_constraintStart_toEndOf="@+id/minText5"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider5" />
+
+        <TextView
+            android:id="@+id/maxText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(255)}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/valueSlider5"
+            app:layout_constraintRight_toRightOf="@+id/valueSlider5" />
+
+        <ImageView
+            android:id="@+id/stLogo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/st_logo"
+            android:layout_marginBottom="5dp"
+            android:onClick="@{() -> main.onSTLogoClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:contentDescription="@string/st_logo" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/ble_status"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
