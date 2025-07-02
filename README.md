@@ -56,6 +56,36 @@ This project is a **prototype implementation** of a wireless DMX512 control syst
 
 ---
 
+## 📷 Images
+
+Below are some key images of the prototype and its components:
+
+<p align="center">
+   <img src="Images/Master.jpeg" width="90%"/>
+   <br><em>Master Board (STM32WB55RG)</em>
+</p>
+
+<p align="center">
+   <img src="Images/Slave.jpeg" width="90%"/>
+   <br><em>Slave Board (STM32F4-Discovery)</em>
+</p>
+
+<p align="center">
+   <img src="Images/MasterConected.jpeg" width="90%"/>
+   <br><em>Master Board Connected to the app</em>
+</p>
+
+<p align="center">
+   <img src="Images/MasterRed.jpeg" width="90%"/>
+   <br><em>Master Board conected to a light</em>
+</p>
+
+<p align="center">
+   <img src="Images/SlaveRed.jpeg" width="90%"/>
+   <br><em>Slave Board with conected to a light</em>
+</p>
+---
+
 ## 📚 References
 
 - [STM32WB55RG Datasheet](https://www.st.com/en/microcontrollers-microprocessors/stm32wb55rg.html )
