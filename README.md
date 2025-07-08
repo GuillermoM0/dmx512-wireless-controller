@@ -42,7 +42,7 @@ This project is a **prototype implementation** of a wireless DMX512 control syst
 ---
 ## 🧪 Testing and Validation
 
-- **Prototyping**: The system was tested using the **Nucleo-STM32WB55RG** (master) and **STM32F4-Discovery** (slave).
+- **Proff of Concept**: The system was tested using the **Nucleo-STM32WB55RG** (master) and **STM32F4-Discovery** (slave).
 - **Signal Generation**: DMX512 signals were validated using an oscilloscope and MATLAB analysis.
 - **Wireless Communication**: NRF24L01 modules were used to simulate multi-slave scenarios.
 
