@@ -84,6 +84,7 @@ Below are some key images of the prototype and its components:
    <img src="Images/SlaveRed.jpeg" width="90%"/>
    <br><em>Slave Board with conected to a light</em>
 </p>
+
 ---
 
 ## 📚 References
